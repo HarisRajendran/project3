@@ -1,0 +1,17 @@
+name: MyFirstWorkflow
+on:
+    workflow_dispatch:
+      branches:
+        - master
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Test code
+        run: npn run test
